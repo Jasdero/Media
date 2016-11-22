@@ -3,6 +3,7 @@
 namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Album
@@ -49,12 +50,22 @@ class Album
      */
     private $support;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
+
+    /**
+     * @ORM\OneToMany(targetEntity="Commentaire", mappedBy="album")
+     */
+    private $commentaires;
+
+    public function __construct()
+    {
+        $this->commentaires = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -150,5 +161,40 @@ class Album
     public function getSupport()
     {
         return $this->support;
+    }
+
+
+
+    /**
+     * Add commentaires
+     *
+     * @param \MediaBundle\Entity\Commentaire $commentaires
+     * @return Album
+     */
+    public function addCommentaire(\MediaBundle\Entity\Commentaire $commentaires)
+    {
+        $this->commentaires[] = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaires
+     *
+     * @param \MediaBundle\Entity\Commentaire $commentaires
+     */
+    public function removeCommentaire(\MediaBundle\Entity\Commentaire $commentaires)
+    {
+        $this->commentaires->removeElement($commentaires);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 }
