@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Album creation</h1>
+    <h1>Création d'album</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Créer" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('album_index') }}">Back to the list</a>
+            <a href="{{ path('album_index') }}">Retour à la liste</a>
         </li>
     </ul>
 {% endblock %}

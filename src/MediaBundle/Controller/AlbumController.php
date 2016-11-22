@@ -10,7 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Album controller.
  *
- * @Route("album")
  */
 class AlbumController extends Controller
 {
