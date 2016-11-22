@@ -2,6 +2,7 @@
 
 namespace MediaBundle\Form;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,6 +21,7 @@ class CommentaireType extends AbstractType
         $builder->add('utilisateur', TextType::class, array('required'=>false, 'empty_data' => 'Anonyme'))
                 ->add('commentaire')
                 ->add('album', ChoiceType::class);
+
     }
     
     /**

@@ -42,6 +42,7 @@ class CommentaireController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $commentaire = new Commentaire();
         $form = $this->createForm('MediaBundle\Form\CommentaireType', $commentaire);
         $form->handleRequest($request);
